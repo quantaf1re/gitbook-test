@@ -19,6 +19,7 @@
         * [Tutorial: Create A Condition And Upload It](autonomy-network/products/tutorial-conditions.md)
             * [Part 1: non-recurring](autonomy-network/products/part-1-non-recurring.md)
             * [Part 2: recurring](autonomy-network/products/part-2-recurring.md)
+            * [Part 3: uploading to AutoStation](autonomy-network/products/part-3-uploading-to-autostation.md)
 
 ## Developers
 * [How to create a Request](developers/how-to-create-a-request.md)
