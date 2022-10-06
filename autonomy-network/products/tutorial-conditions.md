@@ -4,9 +4,10 @@ Typically every action requires a condition under which you want the action to e
 
 This tutorial shows how to create a contract that is usable in AutoStation to add time conditions to any other action\/condition. Since it's already created and uploaded to AutoStation, it's a bit pointless for anyone else to do it, but it shows every step required in the process so you can easily come up with your own condition and upload it to AutoStation. We're going to create a time-based condition contract that allows you to use 2 kinds of triggers\/conditions:
 
- 1. At a specific time, e.g. "trigger on June 1st at 10am" \(more suitable for non-recurring automations\) - \`betweenTimes\`
+1. At a specific time, e.g. "trigger on June 1st at 10am" \(more suitable for non-recurring automations\) - \`betweenTimes\`
 
- 2. Recurring with a constant time period "trigger starting on June 1st at 10am and every day after that" \(obviously more suitable for recurring automations\) - \`everyTimePeriod\`
+2. Recurring with a constant time period "trigger starting on June 1st at 10am and every day after that" \(obviously more suitable for recurring automations\) - \`everyTimePeriod\`
 
-Part 1 covers the specific time condition, and part 2 covers the recurring condition.
+
+Part 1 covers the specific time condition, and part 2 covers the recurring condition. The whole contracat code can be found here ---LINK---\).
 
