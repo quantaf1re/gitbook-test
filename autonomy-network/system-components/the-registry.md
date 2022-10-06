@@ -1,0 +1,9 @@
+# Registry
+
+The `Registry` is a smart contract that manages `Request`s. Users can create and cancel `Request`s, and executors can execute those `Request`s. Having a single `Registry` that is **fully generalised** to be able to automate **any** on-chain action makes Autonomy the only automation solution that can be used off-the-shelf and doesn't need manual support to be added for novel use cases.
+
+The `Registry` only stores a keccak256 hash of an encoded `Request`, so the cost to register a new `Request` is only \~60,000-70,000 gas. When creating a new `Request`, an event is emitted which contains all the `Request`'s information, so that executors can cache the information locally. Every `Request` is stored in an internal array in the `Registry`, where the `id` of each `Request` is the index of that `Request`'s hash in the array.
+
+The array of hashes can be returned by calling `getHashedReqs`. However, once the array is larger than a relatively small amount of hashes, the block gas limit will be reached for calling loading all those variables from storage. Even though the function is `view`, it still usually causes an error in `web3.js/web3.py` etc. Instead, `getHashedReqsSlice`can be used, which returns part of the array with the specified indexes. The length of the array can be known with `getHashedReqsLen`, and an individual hash can be returned with `getHashedReq`.
+
+When a `Request` is executed, the executor has to provide the whole `Request` along with the `id` of the `Request` , which the `Registry` then hashes and checks is the same as the one stored for that `id`. A `Request` is known to have been executed if the element in the array for a given `id` is `0x00..00` , as the content of that element is deleted if the request wasn't marked as `isAlive` (i.e. recurring).
