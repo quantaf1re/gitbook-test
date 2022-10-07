@@ -20,6 +20,7 @@
             * [Part 1: non-recurring](autonomy-network/products/part-1-non-recurring.md)
             * [Part 2: recurring](autonomy-network/products/part-2-recurring.md)
             * [Part 3: uploading to AutoStation](autonomy-network/products/part-3-uploading-to-autostation.md)
+            * [Part 4: bonus - how to call manually](autonomy-network/products/part-4-appendix---how-to-call-manually.md)
 
 ## Developers
 * [How to create a Request](developers/how-to-create-a-request.md)
