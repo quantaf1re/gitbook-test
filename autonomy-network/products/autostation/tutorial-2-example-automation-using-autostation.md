@@ -4,13 +4,11 @@ In this tutorial we will use AutoStation to change a NFT image based on an arbit
 \
 To automatically change the appearance of the NFT's from the **Mystique** contract follow the steps below:\
 \
-**1)** Enter [AutoStation](https://autostation.io/) connect your wallet and click the Manage tab. Deposit some native currency to fund your automations. You can withdraw at any time. \
-
+**1)** Enter [AutoStation](https://autostation.io/) connect your wallet and click the Manage tab. Deposit some native currency to fund your automations. You can withdraw at any time.&#x20;
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2022-10-07 at 11.17.00 AM.png" alt=""><figcaption></figcaption></figure>
 
-**2)** Head back to the Automate tab, and click on the 'Create Automation' button.\
-
+**2)** Head back to the Automate tab, and click on the 'Create Automation' button.
 
 <figure><img src="https://lh4.googleusercontent.com/nAk-uwNh_wPGTVcBBpnZqLkQi4N-nao4P1whWy6NhzA9u_Qku4J_pnaT-Lhb83eDTPwS44ktMqEBtsKe1JcYOUUTNK4Z84vB52nd5fuLWbFwHvpI2xTbXk7LyF1C96pG4KzME7rwQFsNBkX9w1ewqYr-KaBPGIicyFLFzLZPg8-dOr575a02NHR04A" alt=""><figcaption></figcaption></figure>
 
