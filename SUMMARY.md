@@ -13,6 +13,7 @@
   * [AutoSwap](autonomy-network/products/autoswap/README.md)
     * [How It Works](autonomy-network/products/autoswap/how-it-works.md)
     * [Integrating Limits/Stops Into Your DEX](autonomy-network/products/autoswap/integrating-limits-stops-into-your-dex.md)
+    * [Limits & Stops SDK](autonomy-network/products/autoswap/limits-and-stops-sdk.md)
   * [AutoHedge](autonomy-network/products/autohedge/README.md)
     * [How to Use AutoHedge](autonomy-network/products/autohedge/how-to-use-autohedge.md)
     * [Return/Profit Analysis](autonomy-network/products/autohedge/return-profit-analysis.md)
