@@ -18,6 +18,8 @@
     * [How to Use AutoHedge](autonomy-network/products/autohedge/how-to-use-autohedge.md)
     * [Return/Profit Analysis](autonomy-network/products/autohedge/return-profit-analysis.md)
     * [How It Works](autonomy-network/products/autohedge/how-it-works.md)
+    * [How It Works (detailed)](autonomy-network/products/autohedge/how-it-works-detailed/README.md)
+      * [Derivations](autonomy-network/products/autohedge/how-it-works-detailed/derivations.md)
     * [Links](autonomy-network/products/autohedge/links.md)
   * [AutoStation](autonomy-network/products/autostation.md)
     * [Tutorial 1: Create A Condition And Upload It](autonomy-network/products/tutorial-conditions.md)
