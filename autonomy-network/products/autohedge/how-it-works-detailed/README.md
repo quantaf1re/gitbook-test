@@ -26,11 +26,14 @@ All of the following happens with a single `deposit` tx using AutoHedge. Assumin
 4. All of the DEX's LP tokens that are received back, worth $3997.98, are used as collateral on a lending platform (which are being lent out, so you receive interest on them too) to borrow an amount of WETH equal to the WETH that’s deposited in the liquidity pool (0.999499 WETH). This means the pool has a collateral ratio of 200%, and stays there due to rebalancing (described below).
 5. Repay the flashloan of 0.999499 WETH with the 0.999499 WETH borrowed from the lending platform, in addition to the flashloan fee of 0.00049974937 WETH that we set enough stables aside for earlier.
 6. AutoHedge then mints a 2nd LP token, known as AHLP (AutoHedge LP) that's specific to the DEX pair - in this case AHLP-DAI-ETH. This token wraps the whole position (the DEX position, the DEX LP tokens being lent out, and the WETH debt). This token represents a delta-neutral position that also receives LP yields, and therefore essentially acts like a yield-bearing stablecoin.
-7. A 0.3% protocol fee is charged on the deposit that goes to the protocol or the person who referred you, depending on whether you used a referral link. The actual value of the position is defined as whatever stables you're left with after withdrawing and paying all relevant fees. An estimate is however many stables are in the LP, since all the volatile tokens were borrowed - but, because a flashloan is required to unwind the position, it's slightly less than that. Since there's 1998.99 DAI in the LP at this point, an estimate of the value of the position is:\
-   \
-   `positionValue = stableAmount * (1 - protocolFeeRate) * (1 - flFeeRate)`\
-   \
-   positionValue = 1991.9965 DAI
+
+The actual value of the position is defined as whatever stables you're left with after withdrawing and paying all relevant fees. An estimate is however many stables are in the LP, since all the volatile tokens were borrowed - but, because a flashloan is required to unwind the position, it's slightly less than that. Since there's 1998.99 DAI in the LP at this point, an estimate of the value of the position is:\
+\
+`positionValue = stableAmount * (1 - flFeeRate)`\
+\
+positionValue (after withdrawing and all relevant fees) = 1997.9905 DAI
+
+Therefore by simply depositing to and withdrawing from AH, you pay around `100 - 100*(1997.9905 / 2000) =` 0.100475% in total fees for flashloaning/swapping.
 
 That's it! Now you're fully hedged. If the price of ETH suddenly halves, then the value of the DEX position (1998.99 DAI and 0.999499 WETH) is worth $2998.489, but the debt (0.999499 WETH) that you have to repay when withdrawing is only worth $999.499, so the net value of the position is still $1998.99 that you started with (accounting for the flashloan fee but not the protocol fee). However, in reality the price of WETH changing would mean that people trade in the DEX pair which subsequently changes the ratio of assets you have. If the price of ETH went up then you'd end up with more DAI and less WETH in the DEX position than just after you deposited. Since the amount of WETH in the LP changes (to be < 0.999499 WETH) but the debt doesn't change (still 0.999499 WETH), that means the hedge is no longer exact - that's where Autonomy and rebalancing comes in, described below.
 

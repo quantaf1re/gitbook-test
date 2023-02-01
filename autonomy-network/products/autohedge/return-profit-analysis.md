@@ -6,36 +6,29 @@ The overall APY of the position is the net sum of all revenue and cost APYs in t
 
 The revenues are:
 
-* trading fees from LPing on the DEX (A)
-* lending interest from lending out the DEX LP token (B)
-* lending interest from lending out the stablecoins that were traded into after borrowing the volatile token to short (in point 4. in the text list above) (C)
+* trading fees from LPing on the DEX (on the whole position) (A)
+* lending interest from lending out the DEX LP token (on the whole position) (B)
 
 The ongoing costs are:
 
-* The interest rate paid on borrowing the volatile asset (in point 3. in the text list above) (D)
-* The gas cost of rebalancing (E)
+* The interest rate paid on borrowing the volatile asset (on HALF the whole position) (C)
+* The gas cost of rebalancing (on the whole position) (D)
 
-The net APY is therefore:
+The net APY is therefore roughly:
 
-`Net APY = A + B + C - D - E`
+`Net APY = A + B - C/2 - D`
 
-However, A, B, C, & D all grow proportionally as the TVL of AutoHedge grows, whereas E is independent as it's the same no matter what the TVL is. Therefore with large TVL, E becomes insignificant to the point where we can ignore it, especially on chains where the gas cost is cheap anyway. When TVL is small, E is significant, and Autonomy will seed new pairs with native chain tokens to subsidize this cost. The owned/debt threshold for rebalancing can be changed from the default 1% to reduce or increase E as needed depending on the situation.
+However, A, B, & C all grow proportionally as the TVL of AutoHedge grows, whereas D is independent as it's the same no matter what the TVL is. Therefore with large TVL, D becomes insignificant to the point where we can ignore it, especially on chains where the gas cost is cheap anyway. When TVL is small, D is significant, and Autonomy will seed new pairs with native chain tokens to subsidize this cost. The owned/debt threshold for rebalancing can be changed from the default 1% to reduce or increase D as needed depending on the situation - this will have to be optimized for each chain AH is deployed onto.
 
-(A), (B), and (C) are always a positive number by definition, so profitability of the system is just a question of whether:
+(A) and (B) are always a positive number by definition, so profitability of the system is just a question of whether:
 
-(A) + (B) + (C) > (D) + (E)
+`A + B > C/2 + D`
 
-In practice in the crypto markets, rates on stablecoins are typically much higher (by a few % on average) than rates for volatile tokens - this means (C) > (D) and so that eliminates the main cost, and really the only cost as the system scales. This rate difference is because there's a much higher supply of volatiles owned and being lent out compared to stables (thank fuck for the degens).
+What if the above isn't true? It'd be great if, under that condition, you could automatically withdraw your position into stables. Fortunately, Autonomy's automation can be used for exactly that! We'll be adding that as a new feature soon.
 
 ## Other Costs
 
-There are some one-time costs to using AutoHedge when depositing and withdrawing, each of which occur in a single tx.
-
-For example when depositing 8k DAI, 4k of that is swapped to a volatile token like WETH, which has a 0.3% cost ($12, leaving $3988 of WETH). After LPIng with those assets and lending out the DEX LP token as collateral and borrowing $3988 of WETH, that's then swapped into DAI with another 0.3% cost ($11.964, leaving $3976.036 of DAI). At this point the total cost of the deposit is therefore $23.964, or 0.29955%, and the total position value is $7976.036.
-
-At the end of the deposit, 0.3% of all the AH LP tokens that are minted are sent to the Autonomy team, or to the referrer if the depositer used a referral link. This effectively costs the user $23.928108, leaving the overall position worth $7952.107892. The total cost is therefore 0.5986%, plus the gas cost of the tx.
-
-Withdrawing is the same process in reverse, just in the reverse order, and without the 0.3% protocol/referrer fee. Withdrawing therefore costs \~0.29955%.
+There are some one-time costs to using AutoHedge when depositing and withdrawing. For example when depositing and withdrawing 2k DAI as described in [How It Works (detailed)](how-it-works-detailed/) you pay 0.100475% of the deposited amount.
 
 ## Drifting
 
