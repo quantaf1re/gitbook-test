@@ -45,7 +45,7 @@ Then if there are 50 AHLP tokens in existence, and the user wants to burn 5 to w
 * receive 10.1 DEX LP tokens which are redeemed for 0.1111 WETH and 222.2 DAI
 * repay 0.102 WETH
 
-So the total they're left with is 222.2 DAI and 0.0091 WETH. After converting the WETH to DAI, the total the user receives is 240.4 DAI, up from initially being 200 DAI. However, this figure isn't exact - see [How It Works (detailed)](https://app.gitbook.com/o/-MeA5RrsH6Q0j4yLUM7C/s/-MeA4rd8vgaMQcZpHyck/\~/changes/qfyK1EUZ2nvHVqQLLQdb/autonomy-network/products/autohedgev2/how-it-works-detailed).
+So the total they're left with is 222.2 DAI and 0.0091 WETH. After converting the WETH to DAI, the total the user receives is 240.4 DAI, up from initially being 200 DAI. However, this figure isn't exact - see [How It Works (detailed)](how-it-works-detailed/).
 
 ## Rebalance
 
